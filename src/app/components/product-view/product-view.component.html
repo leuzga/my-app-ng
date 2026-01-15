@@ -1,0 +1,15 @@
+@if (product(); as p) {
+{{ index() }} -
+@switch (p.title) {
+@case ('Keyboard') {⌨️}
+@case ('Mouse') {🖱️}
+@case ('Monitor') {🖥️}
+@case ('Headphones') {🎧}
+@case ('Web Camera') {📷}
+@case ('Microphone') {🎤}
+@case ('Laptop') {💻}
+@case ('Tablet') {📱}
+@default {🔖}
+}
+{{ p.title }}
+}

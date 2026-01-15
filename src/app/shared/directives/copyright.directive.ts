@@ -7,6 +7,7 @@ export class CopyrightDirective {
   appCopyright = input<string>('My First Application');
 
   private targetEl: HTMLElement;
+  private copyrightSpan: HTMLSpanElement | null = null;
 
   constructor(el: ElementRef) {
     this.targetEl = el.nativeElement;
@@ -19,6 +20,12 @@ export class CopyrightDirective {
 
   private updateCopyright(appName: string): void {
     const currentYear = new Date().getFullYear();
-    this.targetEl.textContent = `Copyright © ${currentYear} ${appName}. All rights reserved.`;
+    const copyrightText = `Copyright © ${currentYear} ${appName}. All rights reserved.`;
+
+    if (!this.copyrightSpan) {
+      this.copyrightSpan = document.createElement('span');
+      this.targetEl.insertBefore(this.copyrightSpan, this.targetEl.firstChild);
+    }
+    this.copyrightSpan.textContent = copyrightText;
   }
 }
