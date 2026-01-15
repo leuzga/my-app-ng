@@ -26,6 +26,7 @@
   <p>No products found!</p>
   }
 </ul>
+
 <!--
 @if (selectedProduct) {
 <p>You selected:
@@ -33,5 +34,5 @@
   <strong>{{selectedProduct.title}}</strong>
 </p>
 }-->
-<app-product-detail [product]="selectedProduct" (added)="onAdded($event)">
+<app-product-detail #productDetail [product]="selectedProduct" (added)="onAdded($event)">
 </app-product-detail>

@@ -1,6 +1,10 @@
-@if (product()) {
-<p>You selected:
-  <strong>{{product()!.title}}</strong>
-</p>
-<button (click)="onAddToCart()">Add to cart</button>
+@if (product(); as prod) {
+<div>
+  <p>You selected:
+    <!--<strong>{{product()!.title}}</strong>-->
+    <!--<strong>{{prod.title}}</strong>-->
+    <strong>{{productTitle}}</strong>
+  </p>
+  <button (click)="onAddToCart()">Add to cart</button>
+</div>
 }
