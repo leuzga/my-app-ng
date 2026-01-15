@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, input, OnChanges, OnDestroy, OnInit, output, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { CurrencyPipe, KeyValuePipe, TitleCasePipe } from '@angular/common';
 import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-product-detail',
-  imports: [],
+  imports: [CurrencyPipe, KeyValuePipe, TitleCasePipe],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
   // encapsulation: ViewEncapsulation.None

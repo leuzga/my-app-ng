@@ -1,10 +1,16 @@
-@if (product(); as prod) {
+@let selectedProduct = product()!;
+@if (selectedProduct; as sp) {
 <div>
-  <p>You selected:
-    <!--<strong>{{product()!.title}}</strong>-->
-    <!--<strong>{{prod.title}}</strong>-->
-    <strong>{{productTitle}}</strong>
-  </p>
+  <div class="product-info">
+    <span>You selected: <strong>{{ sp.title }}</strong></span>
+    <span>Price: {{ sp.price | currency:'EUR' }}</span>
+    <div class="pill-group">
+      @for (category of sp.categories | keyvalue; track category.key) {
+      <p class="pill">{{category.value | titlecase}}</p>
+      }
+    </div>
+  </div>
+
   <button (click)="onAddToCart()">Add to cart</button>
 </div>
 }

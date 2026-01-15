@@ -7,8 +7,18 @@
 } @else {
 
 }
+
+<div class="sort-control">
+  <span>Sort by:</span>
+  <span>Title</span>
+  <label class="switch">
+    <input type="checkbox" [checked]="sortBy === 'price'" (change)="sortBy = sortBy === 'title' ? 'price' : 'title'">
+    <span class="slider"></span>
+  </label>
+  <span>Price</span>
+</div>
 <ul class="pill-group">
-  @for (product of products; track product.id; let i = $index) {
+  @for (product of products | sort:sortBy; track product.id; let i = $index) {
   <li class="pill" (click)="selectedProduct = product">
     @switch (product.title) {
     @case ('Keyboard') {⌨️}
